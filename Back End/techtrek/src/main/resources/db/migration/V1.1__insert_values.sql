@@ -53,7 +53,7 @@ INSERT INTO currency (id,wallet_id,currency,amount)
     	(23, 2, 'THB', 6216.60),
     	(24, 2, 'USD', 9103.66);
 
-INSERT INTO "transaction" (id, wallet_id, debit_id, debit_currency, debit_amount, credit_id, credit_currency, credit_amount, description, created_timestamp, created_by, last_modified_timestamp, last_modified_by)
+INSERT INTO "transaction" (id, wallet_id, debit_id, debit_currency, debit_amount, credit_id, credit_currency, credit_amount, description, created_timestamp, created_at, last_modified_timestamp, updated_at)
 	VALUES
 	(1, 1, 4, 'EUR', 97.19, 8, 'NOK', 1000.00, '', '2021-11-04 16:00:00', 'Jacky', '2021-11-06 16:00:00', 'Jacky'),
     (2, 2, 13, 'SGD', 102.53, 18, 'JPY', 10000.00, 'allowance for winter school', '2021-11-05 16:00:00', 'Jane', '2021-11-05 16:00:00', NULL),
