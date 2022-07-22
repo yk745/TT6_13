@@ -30,14 +30,14 @@ export function ExchangeRate() {
   return (
     <>
       <section style={{'paddingLeft':'50px', 'paddingBottom':'20px'}}>
-        <h1 className="ExchangeRate-header">
+        <h2 style={{'marginBottom':'10px'}} className="ui dividing header">
           Exchange Rates{" "}
           <CurrencyCodePicker
             supportedCurrencies={supportedCurrencies}
             currencyCode={currencyCode}
             onChange={handleCurrencyCode}
           />
-        </h1>
+        </h2>
       </section>
       <section style={{'paddingLeft':'50px', 'paddingBottom':'20px'}}>
         <AmountField amount={amount} onChange={handleAmountChange} />

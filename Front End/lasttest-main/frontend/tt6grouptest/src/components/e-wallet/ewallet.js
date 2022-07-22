@@ -23,7 +23,7 @@ const config = {
   method: 'get',
   url:'https://86c9-219-74-57-140.ap.ngrok.io/exchangeRate',
   headers: {
-    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Origin': '*',
   }
 };
 useEffect(() => {

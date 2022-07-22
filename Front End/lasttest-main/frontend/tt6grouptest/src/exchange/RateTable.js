@@ -1,6 +1,6 @@
 export function RateTable({ currencyData, amount }) {
   return (
-    <table className="ExchangeRate-table">
+    <table className="ui very basic collapsing celled table">
       <tbody>
         {Object.entries(currencyData).map(([code, rate]) => {
           const exchangeAmount = amount * rate || 0.0;
