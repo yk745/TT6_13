@@ -18,11 +18,13 @@ public class Transaction extends Auditable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "debit_id", referencedColumnName = "id")
     private Currency currencyDebit;
+    @JsonProperty("debit_currency")
+    private String debitCurrency;
+    @JsonProperty("debit_amount")
+    private Float debitAmount;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "credit_id", referencedColumnName = "id")
     private Currency credit_id;
-    @JsonProperty("debit_amount")
-    private Float debitAmount;
     @JsonProperty("credit_currency")
     private String creditCurrency;
     @JsonProperty("credit_amount")

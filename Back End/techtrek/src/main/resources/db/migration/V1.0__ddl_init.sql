@@ -1,9 +1,9 @@
-CREATE TABLE multicurrency (
+CREATE TABLE exchange_rate (
 	id int4 NOT NULL,
 	base_currency varchar(255) NULL,
 	exchange_currency varchar(255) NULL,
 	rate float4 NULL,
-	CONSTRAINT multicurrency_pkey PRIMARY KEY (id)
+	CONSTRAINT exchange_rate_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE wallet (
@@ -31,6 +31,7 @@ CREATE TABLE "transaction" (
 	credit_amount float4 NULL,
 	credit_currency varchar(255) NULL,
 	debit_amount float4 NULL,
+	debit_currency varchar(255) NULL,
 	description varchar(255) NULL,
 	credit_id int4 NULL,
 	debit_id int4 NULL,

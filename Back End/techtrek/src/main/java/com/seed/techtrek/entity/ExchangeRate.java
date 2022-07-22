@@ -18,5 +18,6 @@ public class ExchangeRate {
     private String baseCurrency;
     @JsonProperty("exchange_currency")
     private String exchangeCurrency;
+    @JsonProperty("rate")
     private Float rate;
 }
