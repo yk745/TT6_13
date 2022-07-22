@@ -1,7 +1,7 @@
 import {React, useEffect, useState} from "react";
 import AddWallet from "./addWallet";
 import SingleWallet from "./singlewallet";
-import WalletList from "./WalletList";
+import axios from 'axios';
 
 
 const EWallet = () => {
@@ -16,6 +16,11 @@ const addWalletHandler = (walletDetail) => {
 useEffect(() => {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(walletDetails));
 }, [walletDetails]);
+
+useEffect(() => {
+  axios.get('https://86c9-219-74-57-140.ap.ngrok.io/countryExchangeRate')
+    .then(response => console.log(response.data + "dddddddddddddd"));
+}, []);
 
 return (
   <div className="container" style={{'padding':'50px'}}>
