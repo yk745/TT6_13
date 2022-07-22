@@ -2,6 +2,7 @@ package com.seed.techtrek.repository;
 
 import com.seed.techtrek.entity.Wallet;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,4 +11,7 @@ import java.util.List;
 public interface WalletRepository extends JpaRepository<Wallet, Integer> {
 
     List<Wallet> findByUserId(Integer userId);
+
+    List<Wallet> deleteByWalletId(Integer walletId);
+
 }
