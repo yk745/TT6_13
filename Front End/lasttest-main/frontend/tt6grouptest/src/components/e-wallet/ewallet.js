@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from "react";
 import AddWallet from "./addWallet";
 import SingleWallet from "./singlewallet";
+import WalletList from "./WalletList";
 
 
 const EWallet = () => {
@@ -17,7 +18,7 @@ useEffect(() => {
 }, [walletDetails]);
 
 return (
-  <div className="container">
+  <div className="container" style={{'padding':'50px'}}>
    
     {/* <Router>
     <Header />
@@ -30,7 +31,8 @@ return (
     </Router> */}
 
     <AddWallet addWalletHandler={addWalletHandler}/>
-    <SingleWallet/> 
+    <SingleWallet/>
+     
   
   </div>
 );

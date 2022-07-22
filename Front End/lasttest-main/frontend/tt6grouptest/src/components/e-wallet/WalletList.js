@@ -3,7 +3,7 @@ import SingleWallet from "./singlewallet";
 import {Link} from 'react-router-dom';
 
 
-const CreateWallet = (props) => {
+const WalletList = (props) => {
 
     const renderWalletDetails = props.walletDetails.map((walletDetail) => {
         return (
@@ -26,4 +26,4 @@ const CreateWallet = (props) => {
     );
 }
 
-export default CreateWallet;
+export default WalletList;

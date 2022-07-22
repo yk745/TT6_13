@@ -30,7 +30,8 @@ class AddWallet extends React.Component {
                         <input 
                         type="text" 
                         name="name" 
-                        placeholder="Wallet Name" 
+                        placeholder="Wallet Name"
+                        style={{'width' : '800px'}} 
                         value = {this.state.walletName }
                         onChange={(e) => this.setState({walletName: e.target.value})}></input>
                     </div>
@@ -40,7 +41,8 @@ class AddWallet extends React.Component {
                         <input 
                         type="text"
                         name="email" 
-                        placeholder="Select Currency"                         
+                        placeholder="Select Currency"
+                        style={{'width' : '800px'}}                          
                         value = {this.state.walletCurrency}
                         onChange={(e) => this.setState({walletCurrency: e.target.value})}></input>
                     </div>
