@@ -2,6 +2,7 @@
 import './App.css';
 import React from 'react';
 import EWallet from './components/e-wallet/ewallet';
+import { ExchangeRate } from './exchange/ExchangeRate';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
 
       <EWallet />
+      <ExchangeRate />
       
  </div>
  );
