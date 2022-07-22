@@ -2,7 +2,7 @@ import React from "react";
 
 
 const SingleWallet = (props) => {
-    const {walletName, walletCurrency} = props.walletDetails;
+    // const {walletName, walletCurrency} = props.walletDetails;
 
     // const walletDetails = [{
     //     walletName: "wallet 1",
@@ -14,10 +14,10 @@ const SingleWallet = (props) => {
             <div className="card">
                 <div className="content">
                     <div className="header">
-                       {walletName}
+                       Wallet Name: 
                     </div>
-                    <div className="meta">
-                        {walletCurrency}
+                    <div className="description">
+                        Currency:
                     </div>
 
                 </div>

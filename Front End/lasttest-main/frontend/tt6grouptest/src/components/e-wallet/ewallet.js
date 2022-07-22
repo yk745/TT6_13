@@ -30,7 +30,8 @@ return (
     </Router> */}
 
     <AddWallet addWalletHandler={addWalletHandler}/>
-    {/* <SingleWallet setWalletDetails={addWalletHandler}/> */}
+    <SingleWallet/> 
+  
   </div>
 );
 }
