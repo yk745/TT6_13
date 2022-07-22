@@ -29,7 +29,7 @@ export function ExchangeRate() {
 
   return (
     <>
-      <section>
+      <section style={{'paddingLeft':'50px', 'paddingBottom':'20px'}}>
         <h1 className="ExchangeRate-header">
           Exchange Rates{" "}
           <CurrencyCodePicker
@@ -39,10 +39,10 @@ export function ExchangeRate() {
           />
         </h1>
       </section>
-      <section>
+      <section style={{'paddingLeft':'50px', 'paddingBottom':'20px'}}>
         <AmountField amount={amount} onChange={handleAmountChange} />
       </section>
-      <section>
+      <section style={{'paddingLeft':'50px'}}>
         <RateTable currencyData={currencyData} amount={amount} />
       </section>
     </>
