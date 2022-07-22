@@ -45,4 +45,9 @@ public class APIController {
     public List<ExchangeRate> getExchangeRate() {
         return exchangeRateRepository.findAll();
     }
+
+    @RequestMapping(value = "/countryExchangeRate", method = RequestMethod.POST)
+    public ExchangeRate getCountryExchangeRate(@RequestBody String country) {
+        return exchangeRateRepository.findByCountry(country);
+    }
 }
