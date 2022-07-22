@@ -17,7 +17,7 @@ CREATE TABLE currency (
 	id int4 NOT NULL,
 	amount float4 NULL,
 	currency varchar(255) NULL,
-	wallet_id int4 NULL,
+	wallet_id int4 NOT NULL,
 	CONSTRAINT currency_pkey PRIMARY KEY (id)
 );
 ALTER TABLE currency ADD CONSTRAINT fks2lwnbc64wfh6t1x06sb03odk FOREIGN KEY (wallet_id) REFERENCES wallet(id);
@@ -35,7 +35,7 @@ CREATE TABLE "transaction" (
 	description varchar(255) NULL,
 	credit_id int4 NULL,
 	debit_id int4 NULL,
-	wallet_id int4 NULL,
+	wallet_id int4 NOT NULL,
 	CONSTRAINT transaction_pkey PRIMARY KEY (id)
 );
 

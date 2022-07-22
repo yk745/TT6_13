@@ -12,8 +12,8 @@ public class Transaction extends Auditable {
     @Id
     @GeneratedValue
     private Integer id;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "wallet_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "wallet_id", nullable = false)
     private Wallet wallet;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "debit_id", referencedColumnName = "id")

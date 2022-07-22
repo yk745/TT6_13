@@ -3,14 +3,18 @@ package com.seed.techtrek.controller;
 
 import com.seed.techtrek.entity.ExchangeRate;
 import com.seed.techtrek.entity.User;
+import com.seed.techtrek.entity.Wallet;
+import com.seed.techtrek.model.request.ExchangeRateRequest;
 import com.seed.techtrek.model.request.LoginRequest;
+import com.seed.techtrek.model.request.WalletRequest;
 import com.seed.techtrek.model.response.LoginResponse;
 import com.seed.techtrek.repository.ExchangeRateRepository;
 import com.seed.techtrek.repository.UserRepository;
+import com.seed.techtrek.repository.WalletRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,8 +25,9 @@ public class APIController {
 
     private final UserRepository userRepository;
     private final ExchangeRateRepository exchangeRateRepository;
+    private final WalletRepository walletRepository;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping(value = "/login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
         User user = userRepository.findByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
         if (user != null) {
@@ -36,18 +41,19 @@ public class APIController {
                 .build();
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.POST)
-    public User getWallet(@RequestBody User user) {
-        return user;
+    @PostMapping(value = "/home")
+    public List<Wallet> getWallet(@RequestBody WalletRequest walletRequest) {
+        User user = userRepository.findByName(walletRequest.getName());
+        return walletRepository.findByUserId(user.getId());
     }
 
-    @RequestMapping(value = "/exchangeRate", method = RequestMethod.GET)
+    @GetMapping(value = "/exchangeRate")
     public List<ExchangeRate> getExchangeRate() {
         return exchangeRateRepository.findAll();
     }
 
-    @RequestMapping(value = "/countryExchangeRate", method = RequestMethod.POST)
-    public ExchangeRate getCountryExchangeRate(@RequestBody String country) {
-        return exchangeRateRepository.findByCountry(country);
+    @PostMapping(value = "/countryExchangeRate")
+    public ExchangeRate getCountryExchangeRate(@RequestBody ExchangeRateRequest request) {
+        return exchangeRateRepository.findByExchangeCurrency(request.getCountry());
     }
 }
