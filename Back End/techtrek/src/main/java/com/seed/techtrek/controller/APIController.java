@@ -4,6 +4,7 @@ package com.seed.techtrek.controller;
 import com.seed.techtrek.entity.ExchangeRate;
 import com.seed.techtrek.entity.User;
 import com.seed.techtrek.entity.Wallet;
+import com.seed.techtrek.model.request.DeleteWalletRequest;
 import com.seed.techtrek.model.request.ExchangeRateRequest;
 import com.seed.techtrek.model.request.LoginRequest;
 import com.seed.techtrek.model.request.WalletRequest;
@@ -45,6 +46,12 @@ public class APIController {
     public List<Wallet> getWallet(@RequestBody WalletRequest walletRequest) {
         User user = userRepository.findByName(walletRequest.getName());
         return walletRepository.findByUserId(user.getId());
+    }
+
+    @PostMapping(value = "/deleteWallet")
+    public List<Wallet> deleteWallet(@RequestBody DeleteWalletRequest deleteWalletRequest) {
+        // insert the conversion of currencies here
+        return walletRepository.deleteByWalletId(deleteWalletRequest.getWalletId());
     }
 
     @GetMapping(value = "/exchangeRate")
