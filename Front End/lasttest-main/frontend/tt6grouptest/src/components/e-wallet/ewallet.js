@@ -17,10 +17,19 @@ useEffect(() => {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(walletDetails));
 }, [walletDetails]);
 
+console.log(">>>>>>>>>>>>")
+
+const config = {
+  method: 'get',
+  url:'https://86c9-219-74-57-140.ap.ngrok.io/countryExchangeRate',
+  headers: {
+    'Access-Control-Allow-Origin': '*'
+  }
+};
 useEffect(() => {
-  axios.get('https://86c9-219-74-57-140.ap.ngrok.io/countryExchangeRate')
-    .then(response => console.log(response.data + "dddddddddddddd"));
-}, []);
+  axios(config)
+    .then((response) => console.log(response.data));
+});
 
 return (
   <div className="container" style={{'padding':'50px'}}>

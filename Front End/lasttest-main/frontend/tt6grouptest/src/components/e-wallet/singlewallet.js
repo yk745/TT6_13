@@ -13,7 +13,7 @@ const SingleWallet = (props) => {
         <div>
         <div className="ui dividing header" style={{"margin-top":"30px"}}> My Wallets:</div>
 
-        <div className="ui cards" style={{"margin-top":'30px'}}>
+        <div className="ui cards" style={{"marginTop":'30px'}}>
             <div className="card">
                 <div className="content">
                     <div className="header">
