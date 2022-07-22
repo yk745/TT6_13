@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\BING\Desktop\DBS hack\TT6_13\Back End\techtrek\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1067094681.index
