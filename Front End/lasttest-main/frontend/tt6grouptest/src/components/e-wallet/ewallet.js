@@ -1,5 +1,6 @@
 import {React, useEffect, useState} from "react";
 import AddWallet from "./addWallet";
+import SingleWallet from "./singlewallet";
 
 
 const EWallet = () => {
@@ -29,6 +30,7 @@ return (
     </Router> */}
 
     <AddWallet addWalletHandler={addWalletHandler}/>
+    {/* <SingleWallet setWalletDetails={addWalletHandler}/> */}
   </div>
 );
 }

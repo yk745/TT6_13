@@ -33,7 +33,7 @@ const Header = () => {
           </li>
 
           <li>
-            <Link to="/">Wallets</Link>
+            <Link to="/wallets">Wallets</Link>
           </li>
 
           <li>

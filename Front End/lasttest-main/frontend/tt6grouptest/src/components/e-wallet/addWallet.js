@@ -7,14 +7,14 @@ class AddWallet extends React.Component {
         walletCurrency:""
     };
 
-    add = (e)=> {
+    onSubmit = (e)=> {
         e.preventDefault();
         if ( this.state.walletName === "" && this.state.walletCurrency === "") {
             alert("All fields are mandatory");
             return;
         };
 
-        this.props.addContactHandler(this.state);
+        this.props.addWalletHandler(this.state);
         this.setState({walletName: "", walletCurrency:""}) //App.js there
         //this.props.history.push("/");
     };
@@ -24,7 +24,7 @@ class AddWallet extends React.Component {
         return (
             <div className="ui main">
                 <h2 style={{paddingTop:'50px'}}>Add a new wallet</h2>
-                <form className="ui form" onSubmit={this.add}>
+                <form className="ui form" onSubmit={this.onSubmit}>
                     <div className="field">
                         <label>Wallet Name:</label>
                         <input 
