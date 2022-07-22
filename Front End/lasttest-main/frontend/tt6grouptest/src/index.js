@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { StrictMode } from 'react';
+import {createRoot} from 'react-dom/client';
 import App from './App';
-import Contact from './components/Contact';
-import Form from './components/Form';
 
-ReactDOM.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/registration" element={<Form/>} />
-      <Route path='/contact' element={<Contact/>}/>
-    </Routes>
-  </Router>,
-  document.getElementById('root')
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  // <BrowserRouter>
+  <StrictMode>
+    <App />
+  </StrictMode>
+  // </BrowserRouter>
+  // document.getElementById('root')
 );
