@@ -1,9 +1,12 @@
 package com.seed.techtrek.controller;
 
 
+import com.seed.techtrek.entity.ExchangeRate;
 import com.seed.techtrek.entity.User;
 import com.seed.techtrek.model.request.LoginRequest;
+import com.seed.techtrek.model.response.AllExchangeRateResponse;
 import com.seed.techtrek.model.response.LoginResponse;
+import com.seed.techtrek.repository.ExchangeRateRepository;
 import com.seed.techtrek.repository.UserRepository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +20,11 @@ public class APIController {
 
     private final UserRepository userRepository;
 
-    public APIController(UserRepository userRepository) {
+    private final ExchangeRateRepository exchangeRateRepository;
+
+    public APIController(UserRepository userRepository, ExchangeRateRepository exchangeRateRepository) {
         this.userRepository = userRepository;
+        this.exchangeRateRepository = exchangeRateRepository;
     }
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
@@ -40,8 +46,17 @@ public class APIController {
         return user;
     }
 
-    @RequestMapping(value="/exchangeRate", method=RequestMethod.GET)
-    public ArrayList<Float> getExchangeRate() {
+    @RequestMapping(value="/allExchangeRate", method=RequestMethod.GET)
+    public AllExchangeRateResponse getAllExchangeRate() {
+        ArrayList<ExchangeRate> allExchangeRate = exchangeRateRepository.getAllExchangeRate();
+        return AllExchangeRateResponse.builder()
+                .status("SUCCESS")
+                .allExchangeRate(allExchangeRate)
+                .build();
+    }
+
+    @RequestMapping(value="/countryExchangeRate", method=RequestMethod.POST)
+    public ArrayList<Float> getCountryExchangeRate(@RequestBody String country) {
         return new ArrayList<>();
     }
 }

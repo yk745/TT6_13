@@ -1,11 +1,13 @@
 package com.seed.techtrek.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "exchange_rate")
@@ -19,4 +21,12 @@ public class ExchangeRate {
     @JsonProperty("exchange_currency")
     private String exchangeCurrency;
     private Float rate;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        ExchangeRate exchangeRate = (ExchangeRate) o;
+        return id != null && Objects.equals(id, exchangeRate.id);
+    }
 }
