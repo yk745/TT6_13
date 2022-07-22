@@ -1,9 +1,9 @@
-CREATE TABLE multicurrency (
+CREATE TABLE exchange_rate (
 	id int4 NOT NULL,
 	base_currency varchar(255) NULL,
 	exchange_currency varchar(255) NULL,
 	rate float4 NULL,
-	CONSTRAINT multicurrency_pkey PRIMARY KEY (id)
+	CONSTRAINT exchange_rate_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE wallet (
@@ -17,7 +17,7 @@ CREATE TABLE currency (
 	id int4 NOT NULL,
 	amount float4 NULL,
 	currency varchar(255) NULL,
-	wallet_id int4 NULL,
+	wallet_id int4 NOT NULL,
 	CONSTRAINT currency_pkey PRIMARY KEY (id)
 );
 ALTER TABLE currency ADD CONSTRAINT fks2lwnbc64wfh6t1x06sb03odk FOREIGN KEY (wallet_id) REFERENCES wallet(id);
@@ -31,10 +31,11 @@ CREATE TABLE "transaction" (
 	credit_amount float4 NULL,
 	credit_currency varchar(255) NULL,
 	debit_amount float4 NULL,
+	debit_currency varchar(255) NULL,
 	description varchar(255) NULL,
 	credit_id int4 NULL,
 	debit_id int4 NULL,
-	wallet_id int4 NULL,
+	wallet_id int4 NOT NULL,
 	CONSTRAINT transaction_pkey PRIMARY KEY (id)
 );
 

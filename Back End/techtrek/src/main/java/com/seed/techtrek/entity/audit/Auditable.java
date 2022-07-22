@@ -19,15 +19,7 @@ public class Auditable {
     @CreatedDate
     private LocalDateTime createdDate;
 
-    @Column(name = "created_by")
-    @CreatedBy
-    private String createdBy;
-
     @Column(name = "last_modified_timestamp")
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
-
-    @Column(name = "last_modified_by")
-    @LastModifiedBy
-    private String lastModifiedBy;
 }
